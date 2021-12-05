@@ -1,18 +1,19 @@
 # Merged with official ABS kjsembed PKGBUILD by dr460nf1r3, 2021/12/05 (all respective contributors apply herein)
+# Contributor: João Figueiredo <islandc0der@chaotic.cx>
 # Contributor: Antonio Rojas <arojas@archlinux.org>
 # Contributor: Felix Yan <felixonmars@archlinux.org>
 # Contributor: Andrea Scarpino <andrea@archlinux.org>
 
 pkgname=kimageformats-git
-pkgver=_r369.g81603ed
+pkgver=5.89.0_r369.g81603ed
 pkgrel=1
 pkgdesc='Image format plugins for Qt5'
-arch=(x86_64)
+arch=($CARCH)
 url='https://community.kde.org/Frameworks'
 license=(LGPL)
 depends=(qt5-base)
 makedepends=(extra-cmake-modules-git karchive-git libavif openexr libheif)
-optdepends=('karchive: plugin for Krita and OpenRaster images'
+optdepends=('karchive-git: plugin for Krita and OpenRaster images'
             'libavif: AVIF format support'
             'openexr: EXR format support'
             'libheif: HEIF format support')
@@ -24,7 +25,7 @@ sha256sums=('SKIP')
 
 pkgver() {
   cd ${pkgname%-git}
-  _ver="$(grep -m1 'set(KF5\?_VERSION' CMakeLists.txt | cut -d '"' -f2 | tr - .)"
+  _ver="$(git describe | sed 's/^v//;s/-.*//')"
   echo "${_ver}_r$(git rev-list --count HEAD).g$(git rev-parse --short HEAD)"
 }
 
