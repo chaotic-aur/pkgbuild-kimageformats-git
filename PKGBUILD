@@ -16,7 +16,8 @@ makedepends=(extra-cmake-modules-git karchive-git libavif openexr libheif)
 optdepends=('karchive-git: plugin for Krita and OpenRaster images'
             'libavif: AVIF format support'
             'openexr: EXR format support'
-            'libheif: HEIF format support')
+            'libheif: HEIF format support'
+            'libjxl: JPEGXL format support')
 conflicts=(${pkgname%-git})
 provides=(${pkgname%-git})
 groups=(kf5-git)
