@@ -33,7 +33,7 @@ pkgver() {
 build() {
   cmake -B build -S ${pkgname%-git} \
     -DBUILD_TESTING=OFF \
-    -DKIMAGEFORMATS_HEIF=ON
+    -DKIMAGEFORMATS_HEIF=OFF
   cmake --build build
 }
 
